@@ -1,16 +1,16 @@
 [
   {
-    "file_name": "Остров",
+    "film_name": "Остров",
     "country": "США",
     "genre": "боевик"
   },
   {
-    "file_name": "Мстители",
+    "film_name": "Мстители",
     "country": "США",
     "genre": "боевик"
   },
   {
-    "file_name": "Брат",
+    "film_name": "Брат",
     "country": "Россия",
     "genre": "боевик"
   }
