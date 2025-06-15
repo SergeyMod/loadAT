@@ -21,7 +21,7 @@ pipeline {
                     . ${VENV_DIR}/bin/activate
                     pip install --upgrade pip
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-                    pytest --alluredir=allure-results
+                    pytest -m api --alluredir=allure-results
                 '''
             }
         }
