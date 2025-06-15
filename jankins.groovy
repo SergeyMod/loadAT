@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo '⚙️ Building virtual environment and running tests...'
                 sh '''
-                    python -m venv ${VENV_DIR}
+                    python3 -m venv ${VENV_DIR}
                     source ${VENV_DIR}/bin/activate
                     ${PIP} install --upgrade pip
                     if [ -f requirements.txt ]; then ${PIP} install -r requirements.txt; fi
