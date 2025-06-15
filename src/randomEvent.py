@@ -1,7 +1,8 @@
 import random
-from faker import Faker
 from string import ascii_letters, digits
 from datetime import datetime, timezone, timedelta
+
+from faker import Faker
 
 from src.event import Event
 from src.enum.type_event import TypeEvent
