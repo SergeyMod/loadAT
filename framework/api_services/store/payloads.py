@@ -1,12 +1,4 @@
-from datetime import datetime
+from framework.api_services.data.order import Order
 
 class Payloads:
-    _date = datetime.now().isoformat()
-    create_order = {
-          "id": 1,
-          "petId": 0,
-          "quantity": 0,
-          "shipDate": _date,
-          "status": "placed",
-          "complete": "true"
-}
+    create_order = Order(id=1, petId=0, quantity=0, status="placed", complete=True).__dict__

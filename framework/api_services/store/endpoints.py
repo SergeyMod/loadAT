@@ -1,8 +1,19 @@
+from enum import Enum
 
 HOST = 'https://petstore.swagger.io/v2'
 
-class Endpoints:
+class Endpoints(str, Enum):
+    GET_STORE_INVENTORY = f'{HOST}/store/inventory'
+    CREATE_ORDER = f'{HOST}/store/order'
 
-    get_store_inventory = f'{HOST}/store/inventory'
-    create_order = f'{HOST}/store/order'
-    dell_order_by_id = get_order_by_id = lambda self, order_id: f'{HOST}/store/order/{order_id}'
+    @staticmethod
+    def GET_ORDER_BY_ID(order_id: int) -> str:
+        return f'{HOST}/store/order/{order_id}'
+
+    @staticmethod
+    def DELL_ORDER_BY_ID(order_id: int) -> str:
+        return f'{HOST}/store/order/{order_id}'
+
+    def __str__(self):
+        return self.value
+

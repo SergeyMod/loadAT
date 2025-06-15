@@ -20,7 +20,7 @@ def close_driver_after_test(request):
     request.addfinalizer(close_driver)
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def allure_screen(request):
     yield
     screen_for_allure()
