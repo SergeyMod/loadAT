@@ -1,19 +1,23 @@
 from enum import Enum
 
-HOST = 'https://petstore.swagger.io/v2'
+# HOST = 'https://petstore.swagger.io/v2'
 
-class Endpoints(str, Enum):
-    GET_STORE_INVENTORY = f'{HOST}/store/inventory'
-    CREATE_ORDER = f'{HOST}/store/order'
+class Endpoints(str):
+    def __init__(self, base_url):
+        self.HOST = base_url
 
-    @staticmethod
-    def GET_ORDER_BY_ID(order_id: int) -> str:
-        return f'{HOST}/store/order/{order_id}'
+    @property
+    def get_store_inventory(self):
+        return f'{self.HOST}/store/inventory'
 
-    @staticmethod
-    def DELL_ORDER_BY_ID(order_id: int) -> str:
-        return f'{HOST}/store/order/{order_id}'
+    @property
+    def create_order(self):
+        return f'{self.HOST}/store/order'
 
-    def __str__(self):
-        return self.value
+    def get_order_by_id(self, order_id: int) -> str:
+        return f'{self.HOST}/store/order/{order_id}'
+
+    def dell_order_by_id(self, order_id: int) -> str:
+        return f'{self.HOST}/store/order/{order_id}'
+
 

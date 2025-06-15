@@ -25,7 +25,7 @@ def browser(request):
             browser = webdriver.Firefox(options=options)
         case _:
             raise ValueError(
-                f'Браузер {settings['browser']} не распознан, проверте значение')
+                f'Браузер {settings["browser"]} не распознан, проверте значение')
     browser.set_window_size(*settings['window_size'].split(','))
     request.cls.browser = browser
     yield browser
