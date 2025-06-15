@@ -4,7 +4,7 @@
   "options":
     {
       "--no-sandbox": "True",
-      "--headless": "False",
-      "--disable-dev-shm-usage": "False"
+      "--headless": "True",
+      "--disable-dev-shm-usage": "True"
     }
 }
