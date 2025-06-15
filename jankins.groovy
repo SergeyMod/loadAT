@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo '📥 Checking out test4 branch...'
-                git branch: 'test4', url: 'https://github.com/SergeyMod/loadAT.git'
+                echo '📥 Checking out task4 branch...'
+                git branch: 'task4', url: 'https://github.com/SergeyMod/loadAT.git'
             }
         }
 
