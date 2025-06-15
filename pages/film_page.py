@@ -1,17 +1,15 @@
-import json
-
 import allure
 
 from selenium.webdriver.common.by import By
 
 from base.base_page import BasePage
-from pages.links import Links
+from pages.enum.links import Links
 
 
 class FilmPage(BasePage):
-    PAGE_URL = Links.FILM
+    PAGE_URL = str(Links.FILM)
 
-    ELEMENT_INFO_CSS_SELECTOR = '//div[@data-tid="7cda04a5"]'
+    ELEMENT_INFO_XPATH = '//div[@data-tid="7cda04a5"]'
     TITLE_CSS_SELECTOR = '.styles_title__b1HVo'
     VALUE_CSS_SELECTOR = '.styles_value__g6yP4'
 
@@ -21,7 +19,7 @@ class FilmPage(BasePage):
     def save_info_film(self, film_name: str):
         with allure.step(f'Parse param film: {film_name}'):
             elements = self.find_clickable_elements(
-                self.ELEMENT_INFO_CSS_SELECTOR)
+                self.ELEMENT_INFO_XPATH)
             film_info = {}
             for element in elements:
                 title = element.find_element(
