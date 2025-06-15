@@ -1,7 +1,7 @@
-from src.run import Run
+from src.groupevents import GroupEvents
 
 if __name__ == '__main__':
-    Run.run()
+    GroupEvents().run()
 
 
 
