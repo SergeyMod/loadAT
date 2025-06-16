@@ -4,10 +4,12 @@ pipeline {
     environment {
         VENV_DIR = ".venv"
         API_URL = "${params.URL ?: 'https://petstore.swagger.io/v2'}"
+        TEST_TYPE = "${params.TEST_TYPE}"
     }
 
     parameters {
         string(name: 'URL', defaultValue: 'https://petstore.swagger.io/v2', description: 'API base URL')
+        choice(name: 'TEST_TYPE', choices: ['api', 'ui', 'all'], description: 'Тип тестов для запуска')
     }
 
     triggers {
@@ -30,7 +32,13 @@ pipeline {
                     . ${VENV_DIR}/bin/activate
                     pip install --upgrade pip
                     if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-                    pytest -m "api" --url=${API_URL} --alluredir=allure-results
+                    if [ "${TEST_TYPE}" = "api" ]; then
+                        pytest -m "api" --url=${API_URL} --alluredir=allure-results
+                    elif [ "${TEST_TYPE}" = "ui" ]; then
+                        pytest -m "ui" --url=${API_URL} --alluredir=allure-results
+                    else
+                        pytest --url=${API_URL} --alluredir=allure-results
+                    fi
                 '''
             }
         }
