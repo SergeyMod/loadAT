@@ -1,0 +1,10 @@
+{
+  "browser": "Chrome",
+  "window_size": "1920,1080",
+  "options":
+    {
+      "--no-sandbox": "True",
+      "--headless": "False",
+      "--disable-dev-shm-usage": "False"
+    }
+}
